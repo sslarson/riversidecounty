@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Riverside County SSIS", "Riverside County\Riverside County SSIS.dtproj", "{CF63CA4E-073C-4128-A26D-950014F6A8B2}"
+EndProject
+Project("{6870E480-7721-4708-BFB8-9AE898AA21B3}") = "Riverside County SSAS", "Riverside County SSAS\Riverside County SSAS.smproj", "{8CE414BB-95B2-4C99-9E03-51BA72086E22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|x86 = Development|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF63CA4E-073C-4128-A26D-950014F6A8B2}.Development|x86.ActiveCfg = Development
+		{CF63CA4E-073C-4128-A26D-950014F6A8B2}.Development|x86.Build.0 = Development
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.ActiveCfg = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.Build.0 = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.Deploy.0 = Development|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25FE779E-F76F-4CFC-9021-91D7C1FBA9DF}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,427 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1400,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/larsonsqlazure database windows net;Riverside County Data Mart",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "larsonsqlazure.database.windows.net",
+            "database": "Riverside County Data Mart"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "options": {},
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "Scott",
+          "EncryptConnection": true
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "FactExpenses",
+        "columns": [
+          {
+            "name": "FiscalYear",
+            "dataType": "string",
+            "sourceColumn": "FiscalYear"
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "Department"
+          },
+          {
+            "name": "FundType",
+            "dataType": "string",
+            "sourceColumn": "FundType"
+          },
+          {
+            "name": "FundID",
+            "dataType": "string",
+            "sourceColumn": "FundID"
+          },
+          {
+            "name": "AccountCategory",
+            "dataType": "string",
+            "sourceColumn": "AccountCategory"
+          },
+          {
+            "name": "Account",
+            "dataType": "string",
+            "sourceColumn": "Account"
+          },
+          {
+            "name": "ApprovedAmount",
+            "dataType": "double",
+            "sourceColumn": "ApprovedAmount"
+          },
+          {
+            "name": "ActualAmount",
+            "dataType": "double",
+            "sourceColumn": "ActualAmount"
+          },
+          {
+            "name": "BusinessUnitID",
+            "dataType": "string",
+            "sourceColumn": "BusinessUnitID"
+          },
+          {
+            "name": "Fund",
+            "dataType": "string",
+            "sourceColumn": "Fund"
+          },
+          {
+            "name": "BusinessUnit",
+            "dataType": "string",
+            "sourceColumn": "BusinessUnit"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/larsonsqlazure database windows net;Riverside County Data Mart\",",
+                "    dbo_FactExpenses = Source{[Schema=\"dbo\",Item=\"FactExpenses\"]}[Data]",
+                "in",
+                "    dbo_FactExpenses"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactRevenues",
+        "columns": [
+          {
+            "name": "FiscalYear",
+            "dataType": "string",
+            "sourceColumn": "FiscalYear"
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "Department"
+          },
+          {
+            "name": "FundType",
+            "dataType": "string",
+            "sourceColumn": "FundType"
+          },
+          {
+            "name": "FundID",
+            "dataType": "string",
+            "sourceColumn": "FundID"
+          },
+          {
+            "name": "AccountCategory",
+            "dataType": "string",
+            "sourceColumn": "AccountCategory"
+          },
+          {
+            "name": "Account",
+            "dataType": "string",
+            "sourceColumn": "Account"
+          },
+          {
+            "name": "ApprovedAmount",
+            "dataType": "double",
+            "sourceColumn": "ApprovedAmount"
+          },
+          {
+            "name": "ActualAmount",
+            "dataType": "double",
+            "sourceColumn": "ActualAmount"
+          },
+          {
+            "name": "BusinessUnitID",
+            "dataType": "string",
+            "sourceColumn": "BusinessUnitID"
+          },
+          {
+            "name": "Fund",
+            "dataType": "string",
+            "sourceColumn": "Fund"
+          },
+          {
+            "name": "BusinessUnit",
+            "dataType": "string",
+            "sourceColumn": "BusinessUnit"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/larsonsqlazure database windows net;Riverside County Data Mart\",",
+                "    dbo_FactRevenues = Source{[Schema=\"dbo\",Item=\"FactRevenues\"]}[Data]",
+                "in",
+                "    dbo_FactRevenues"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimAccountCategory",
+        "columns": [
+          {
+            "name": "AccountCategory",
+            "dataType": "string",
+            "sourceColumn": "AccountCategory"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/larsonsqlazure database windows net;Riverside County Data Mart\",",
+                "    dbo_DimAccountCategory = Source{[Schema=\"dbo\",Item=\"DimAccountCategory\"]}[Data]",
+                "in",
+                "    dbo_DimAccountCategory"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimBusinessUnit",
+        "columns": [
+          {
+            "name": "BusinessUnitName",
+            "dataType": "string",
+            "sourceColumn": "BusinessUnitName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/larsonsqlazure database windows net;Riverside County Data Mart\",",
+                "    dbo_DimBusinessUnit = Source{[Schema=\"dbo\",Item=\"DimBusinessUnit\"]}[Data]",
+                "in",
+                "    dbo_DimBusinessUnit"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimDepartment",
+        "columns": [
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "Department"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/larsonsqlazure database windows net;Riverside County Data Mart\",",
+                "    dbo_DimDepartment = Source{[Schema=\"dbo\",Item=\"DimDepartment\"]}[Data]",
+                "in",
+                "    dbo_DimDepartment"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimFund",
+        "columns": [
+          {
+            "name": "Fund",
+            "dataType": "string",
+            "sourceColumn": "Fund"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/larsonsqlazure database windows net;Riverside County Data Mart\",",
+                "    dbo_DimFund = Source{[Schema=\"dbo\",Item=\"DimFund\"]}[Data]",
+                "in",
+                "    dbo_DimFund"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimFundType",
+        "columns": [
+          {
+            "name": "FundType",
+            "dataType": "string",
+            "sourceColumn": "FundType"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/larsonsqlazure database windows net;Riverside County Data Mart\",",
+                "    dbo_DimFundType = Source{[Schema=\"dbo\",Item=\"DimFundType\"]}[Data]",
+                "in",
+                "    dbo_DimFundType"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimDate",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "FullDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FullDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/larsonsqlazure database windows net;Riverside County Data Mart\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data],",
+                "    #\"Removed Other Columns\" = Table.SelectColumns(dbo_DimDate,{\"DateKey\", \"FullDate\"}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Removed Other Columns\",{{\"FullDate\", type date}})",
+                "in",
+                "    #\"Changed Type\""
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "0e5ccb33-e3fd-4663-a353-9ba623402d8f",
+        "fromTable": "FactExpenses",
+        "fromColumn": "BusinessUnit",
+        "toTable": "DimBusinessUnit",
+        "toColumn": "BusinessUnitName"
+      },
+      {
+        "name": "200fc648-1f38-44e0-be0c-bede896771ad",
+        "fromTable": "FactExpenses",
+        "fromColumn": "Department",
+        "toTable": "DimDepartment",
+        "toColumn": "Department"
+      },
+      {
+        "name": "84a0aef3-76a9-4441-ad36-06d7c933c830",
+        "fromTable": "FactExpenses",
+        "fromColumn": "Fund",
+        "toTable": "DimFund",
+        "toColumn": "Fund"
+      },
+      {
+        "name": "6a0bb603-f126-4328-b0fe-85bb9160601e",
+        "fromTable": "FactRevenues",
+        "fromColumn": "AccountCategory",
+        "toTable": "DimAccountCategory",
+        "toColumn": "AccountCategory"
+      },
+      {
+        "name": "107d7ef1-9b76-49d7-8fbd-421e80d613f2",
+        "fromTable": "FactRevenues",
+        "fromColumn": "Department",
+        "toTable": "DimDepartment",
+        "toColumn": "Department"
+      },
+      {
+        "name": "e2f140f2-4c7b-4278-9fba-ef8ba16b03f7",
+        "fromTable": "FactRevenues",
+        "fromColumn": "Fund",
+        "toTable": "DimFund",
+        "toColumn": "Fund"
+      },
+      {
+        "name": "c172c041-4c6e-40d8-b995-dd25e7d70521",
+        "fromTable": "FactExpenses",
+        "fromColumn": "AccountCategory",
+        "toTable": "DimAccountCategory",
+        "toColumn": "AccountCategory"
+      },
+      {
+        "name": "acbc0a32-9097-4554-b7d8-1c48a79ecaf3",
+        "fromTable": "FactExpenses",
+        "fromColumn": "FundType",
+        "toTable": "DimFundType",
+        "toColumn": "FundType"
+      },
+      {
+        "name": "44cd286f-8bf0-4c1d-8678-9845ffde5435",
+        "fromTable": "FactRevenues",
+        "fromColumn": "BusinessUnit",
+        "toTable": "DimBusinessUnit",
+        "toColumn": "BusinessUnitName"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "500"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
