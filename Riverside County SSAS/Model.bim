@@ -485,6 +485,13 @@
         "fromColumn": "BusinessUnit",
         "toTable": "DimBusinessUnit",
         "toColumn": "BusinessUnitName"
+      },
+      {
+        "name": "21652be2-5ead-4760-aeb4-0d22cc453fd3",
+        "fromTable": "FactRevenues",
+        "fromColumn": "FundType",
+        "toTable": "DimFundType",
+        "toColumn": "FundType"
       }
     ],
     "annotations": [
